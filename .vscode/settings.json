@@ -1,0 +1,10 @@
+{
+  "python.pythonPath": "/Users/asazone/.local/share/virtualenvs/udemy-nCpPxOcF/bin/python",
+  "python.linting.pylintPath": "pylint",
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "python.linting.pylintArgs": [
+    "--load-plugins",
+    "pylint-flask"
+  ],
+}
