@@ -12,6 +12,7 @@ flask = "*"
 flask-restful = "*"
 flask-jwt = "*"
 flask-sqlalchemy = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
