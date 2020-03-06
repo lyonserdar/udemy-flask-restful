@@ -2,11 +2,11 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 
-from resources.user import UserRegisterAPI
-from resources.item import ItemAPI, ItemListAPI
-from resources.store import StoreAPI, StoreListAPI
+from app.resources.user import UserRegisterAPI
+from app.resources.item import ItemAPI, ItemListAPI
+from app.resources.store import StoreAPI, StoreListAPI
 
-from services.security import authenticate, identity
+from app.services.security import authenticate, identity
 
 app = Flask(__name__)
 app.debug = True
