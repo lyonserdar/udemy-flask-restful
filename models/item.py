@@ -1,19 +1,23 @@
-from app.services.database import db
+from services.database import db
 
 
-class Store(db.Model):
-    __tablename__ = "stores"
+class Item(db.Model):
+    __tablename__ = "items"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
+    price = db.Column(db.Float(precision=2))
 
-    items = db.relationship('Item', lazy='dynamic')
+    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"))
+    store = db.relationship("Store")
 
-    def __init__(self, name):
+    def __init__(self, name, price, store_id):
         self.name = name
+        self.price = price
+        self.store_id = store_id
 
     def json(self):
-        return {"name": self.name, "items": [item.json() for item in self.items.all()]}
+        return {"name": self.name, "price": self.price}
 
     @classmethod
     def find_by_name(cls, name):
