@@ -1,5 +1,4 @@
-import sqlite3
-from app import db
+from services.database import db
 
 
 class User(db.Model):

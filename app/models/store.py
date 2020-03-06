@@ -1,4 +1,4 @@
-from app import db
+from services.database import db
 
 
 class Store(db.Model):
@@ -19,7 +19,7 @@ class Store(db.Model):
     def find_by_name(cls, name):
         return cls.query.filter_by(name=name).first()
 
-    def save_to_db(self)):
+    def save_to_db(self):
         db.session.add(self)
         db.session.commit()
 

@@ -1,4 +1,4 @@
-from app import db
+from services.database import db
 
 
 class Item(db.Model):
@@ -8,8 +8,8 @@ class Item(db.Model):
     name = db.Column(db.String(255))
     price = db.Column(db.Float(precision=2))
 
-    store_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
-    store = db.relationship('Store')
+    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"))
+    store = db.relationship("Store")
 
     def __init__(self, name, price, store_id):
         self.name = name
@@ -23,7 +23,7 @@ class Item(db.Model):
     def find_by_name(cls, name):
         return cls.query.filter_by(name=name).first()
 
-    def save_to_db(self)):
+    def save_to_db(self):
         db.session.add(self)
         db.session.commit()
 
